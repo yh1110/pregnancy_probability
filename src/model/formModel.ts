@@ -1,20 +1,43 @@
 import { FormInputAreaType } from "../types/Form";
-const onChange = (e: React.ChangeEvent<HTMLInputElement>) => e.target.value;
 
 //続きはここから #TODO
 const formModel: FormInputAreaType[] = [
+  { label: "最後の月経開始日:", id: "lastPeriod", type: "date", required: true, displayHelper: "" },
   {
-    id: "string",
-    type: "string",
-    value: "string",
-    onChange,
-    label: "最後の月経開始日:",
-    DisplayHelper: "flex",
-    min: 1,
-    max: 1,
-    step: 1,
+    label: "性行為の日付:",
+    id: "intercourseDate",
+    type: "date",
     required: true,
-    helperMessage: "ヘルパーメッセージ",
+    displayHelper: "",
+  },
+  {
+    label: "月経周期の長さ（日数）:",
+    id: "cycleLength",
+    type: "number",
+    min: 21,
+    max: 35,
+    displayHelper: "",
+  },
+  { label: "年齢:", id: "age", type: "number", min: 10, max: 60, displayHelper: "" },
+  { label: "BMI:", id: "bmi", type: "number", min: 15, max: 40, step: 0.1, displayHelper: "" },
+  {
+    label: "不妊期間（月）:",
+    id: "infertility",
+    type: "number",
+    min: 0,
+    max: 36,
+    displayHelper: "",
+  },
+  {
+    label: "避妊方法:",
+    id: "contraception",
+    type: "select",
+    items: [
+      { value: "none", label: "なし" },
+      { value: "condom", label: "コンドーム" },
+      { value: "pill", label: "ピル" },
+    ],
+    displayHelper: "",
   },
 ];
 

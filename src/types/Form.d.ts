@@ -1,22 +1,28 @@
 // #FIXME value不要
-// #TODO selectタグのこと考慮してなかったー
-export interface FormInputType {
+
+export interface FormInputAreaType {
   id: string;
-  type: string;
-  value: string | number;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: string;
   min?: number;
   max?: number;
   step?: number;
   required?: boolean;
-}
-
-export interface FormInputAreaType extends FormInputType {
   label: string;
   helperMessage?: string;
-  DisplayHelper: UIValue<Display>;
+  displayHelper: UIValue<Display>;
+  items?: SelectItem[];
 }
 
-export interface FormControlType extends FormInputAreaType {
-  onSubmit: React.FormEventHandler<HTMLDivElement> | undefined;
+export interface FormControlType {
+  onClick: (req: FormValue) => Promise<void>;
+}
+
+export interface FormValue {
+  lastPeriod?: Date;
+  intercourseDate?: Date;
+  cycleLength?: number;
+  age?: number;
+  bmi?: number;
+  infertility?: number;
+  contraception?: string;
 }
